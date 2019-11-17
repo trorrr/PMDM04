@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="productos_informatica">
+        <item>PC de Sobremesa</item>
+        <item>Portátil</item>
+        <item>Monitor</item>
+    </string-array>
+</resources>

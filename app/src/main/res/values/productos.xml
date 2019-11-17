@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="productos">
+        <item>Informática</item>
+        <item>Electrónica</item>
+        <item>Móbiles</item>
+    </string-array>
+</resources>

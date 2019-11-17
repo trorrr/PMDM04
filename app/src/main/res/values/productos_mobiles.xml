@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="productos_mobiles">
+        <item>Pixel</item>
+        <item>Galaxy</item>
+        <item>iPhone</item>
+        <item>Xiaomi</item>
+    </string-array>
+</resources>
