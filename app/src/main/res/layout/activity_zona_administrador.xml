@@ -6,23 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".Intents.ZonaAdministrador">
 
-    <TextView
-        android:id="@+id/TXTNome"
+    <Button
+        android:id="@+id/BTNAdminVerPedidosEnTramite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="136dp"
+        android:onClick="onClickVerPedidosEnTramite"
+        android:text="ver pedidos en trámite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LBLAdminNome" />
+
+    <Button
+        android:id="@+id/BTNAdminVerComprasAceptadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="28dp"
+        android:onClick="onClickVerPedidosAceptados"
+        android:text="ver pedidos aceptados"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BTNAdminVerPedidosEnTramite" />
+
+    <Button
+        android:id="@+id/BTNAdminVerComprasRexeitadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="28dp"
+        android:onClick="onClickVerPedidosRexeitados"
+        android:text="ver pedidos rexeitados"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BTNAdminVerComprasAceptadas" />
+
+    <TextView
+        android:id="@+id/LBLAdminNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:text="NomeB Apelido1B Apelido2B"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/AdminToolbar" />
 
     <ImageView
         android:id="@+id/IMG"
         android:layout_width="114dp"
         android:layout_height="131dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AdminToolbar"
         app:srcCompat="@drawable/adminimg" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/AdminToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

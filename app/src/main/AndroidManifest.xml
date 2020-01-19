@@ -8,8 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Intents.FinalizarPedido"></activity>
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Intents.AdminVerPedidosRexeitados"></activity>
+        <activity android:name=".Intents.AdminVerPedidosAceptados" />
+        <activity android:name=".Intents.AdminVerPedidosEnTramite" />
+        <activity android:name=".Intents.Rexistrarse" />
+        <activity android:name=".Intents.FinalizarPedido" />
         <activity android:name=".Intents.ZonaAdministrador" />
         <activity android:name=".Intents.VerComprasRealizadas" />
         <activity android:name=".Intents.VerPedidosEnTramite" />

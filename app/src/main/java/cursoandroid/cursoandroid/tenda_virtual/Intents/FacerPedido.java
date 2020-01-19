@@ -14,12 +14,15 @@ import android.widget.Toast;
 import cursoandroid.cursoandroid.tenda_virtual.R;
 
 public class FacerPedido extends AppCompatActivity {
+    private String Usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facer_pedido);
         final Spinner spinnerTipoProducto = (Spinner) findViewById(R.id.spinner_tipo_producto);
+        Intent intent = getIntent();
+        Usuario = intent.getExtras().getString("Usuario");
 
 
         spinnerTipoProducto.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -59,6 +62,7 @@ public class FacerPedido extends AppCompatActivity {
         intent.putExtra("categoria",spinTipoProducto.getSelectedItem().toString());
         intent.putExtra("producto",spinProducto.getSelectedItem().toString());
         intent.putExtra("cantidade",spinCantidade.getSelectedItem().toString());
+        intent.putExtra("Usuario", Usuario);
         startActivity(intent);
 
     }

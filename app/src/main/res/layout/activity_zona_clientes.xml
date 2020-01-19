@@ -10,20 +10,20 @@
         android:id="@+id/LBLNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
         android:text="NomeA Apelido1A Apelido2A"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ClientesToolbar" />
 
     <ImageView
         android:id="@+id/IMG"
-        android:layout_width="106dp"
+        android:layout_width="104dp"
         android:layout_height="103dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ClientesToolbar"
         app:srcCompat="@drawable/clienteimg" />
 
     <Button
@@ -69,4 +69,18 @@
         android:text="Saír"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BTNVerComprasRealizadas" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/ClientesToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

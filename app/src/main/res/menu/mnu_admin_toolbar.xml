@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_admin_ver_pedidos_en_tramite"
+        android:title="Ver pedidos en trámite"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_admin_ver_pedidos_aceptados"
+        android:title="Ver pedidos aceptados"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_admin_ver_pedidos_rexeitados"
+        android:title="Ver pedidos rexeitados"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_admin_atras"
+        android:title="Atrás"
+        app:showAsAction="never"/>
+</menu>

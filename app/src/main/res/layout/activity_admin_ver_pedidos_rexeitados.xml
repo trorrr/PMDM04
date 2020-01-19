@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Intents.VerPedidosEnTramite">
+    tools:context=".Intents.AdminVerPedidosRexeitados">
 
     <TextView
         android:id="@+id/LBLVerPedidosEnTramite"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
-        android:text="Ver pedidos en trámite"
+        android:text="Ver pedidos rexeitados"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
