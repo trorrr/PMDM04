@@ -10,14 +10,12 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,45 +28,39 @@ import java.util.Date;
 import cursoandroid.cursoandroid.tenda_virtual.BaseDatos;
 import cursoandroid.cursoandroid.tenda_virtual.R;
 
-public class Rexistrarse extends AppCompatActivity {
-    private static final int REQUEST_CODE_GRAVACION_OK = 0;
-    private static final int CODIGO_IDENTIFICADOR = 1;
+public class EditarDatos extends AppCompatActivity {
     private BaseDatos baseDatos;
+    private String Usuario;
+    private static final int CODIGO_IDENTIFICADOR = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rexistrarse);
-        pedirPermiso();
-    }
-
-    public void onClickRexistrarse(View v) {
+        setContentView(R.layout.activity_editar_datos);
+        final ImageView img2 = (ImageView) findViewById(R.id.imgView2);
+        final TextView TXTEditNome = (TextView) findViewById(R.id.TXTEditNome);
+        final TextView TXTEditApelidos = (TextView) findViewById(R.id.TXTEditApelidos);
+        final TextView TXTEditEmail = (TextView) findViewById(R.id.TXTEditEmail);
+        final TextView txtURI2 = (TextView) findViewById(R.id.txtURI2);
+        final TextView TXTEditContrasinal1 = (TextView) findViewById(R.id.TXTEditContrasinal1);
+        final TextView TXTEditContrasinal2 = (TextView) findViewById(R.id.TXTEditContrasinal2);
+        Intent intent = getIntent();
+        Usuario = intent.getExtras().getString("Usuario");
         baseDatos = new BaseDatos(getApplicationContext());
         SQLiteDatabase sqlLiteDB = baseDatos.getWritableDatabase();
-        final EditText TXTUsuario = (EditText) findViewById(R.id.TXTUsuario);
-        final EditText TXTNome = (EditText) findViewById(R.id.TXTNome);
-        final EditText TXTApelidos = (EditText) findViewById(R.id.TXTApelidos);
-        final EditText TXTEmail = (EditText) findViewById(R.id.TXTEmail);
-        final EditText TXTContrasinal = (EditText) findViewById(R.id.TXTContrasinal);
-        final RadioGroup Radio = (RadioGroup) findViewById(R.id.radioGrupo);
-        int selectedId = Radio.getCheckedRadioButtonId();
-        RadioButton radioButton = (RadioButton) findViewById(selectedId);
-        final TextView txtURI = (TextView) findViewById(R.id.txtURI);
-
-        Cursor cursor = sqlLiteDB.rawQuery("select count(*) from USUARIOS where usuario='"+TXTUsuario+"'", null);
+        Cursor cursor = sqlLiteDB.rawQuery("select nome,apelidos,foto,email from USUARIOS where usuario='"+Usuario+"'", null);
         if (cursor.moveToFirst()) { // Por si no hay registros
-            int existeUsuario =cursor.getInt(0);
-            if(existeUsuario==0) { //No existe el usuario, hay que crearlo
-                sqlLiteDB.execSQL("INSERT INTO Usuarios (nome,apelidos,email,usuario,contrasinal,tipo,foto) VALUES ('"+TXTNome.getText().toString()+"','"+TXTApelidos.getText().toString()+"','"+TXTEmail.getText().toString()+"','"+TXTUsuario.getText().toString()+"','"+TXTContrasinal.getText().toString()+"','"+radioButton.getText().toString()+"','"+txtURI.getText().toString()+"')");
-                Toast.makeText(getApplicationContext(),"¡Rexistrado satisfactoriamente, podes voltar e loguearte! ",Toast.LENGTH_LONG).show();
-            }
-            else {
-                Toast.makeText(getApplicationContext(),"¡O usuario xa existe! ",Toast.LENGTH_LONG).show();
-            }
+            TXTEditNome.setText(cursor.getString(0));
+            TXTEditApelidos.setText(cursor.getString(1));
+            TXTEditEmail.setText(cursor.getString(3));
+            txtURI2.setText(cursor.getString(2));
+            img2.setImageBitmap(BitmapFactory.decodeFile(cursor.getString(2)));
         }
 
         baseDatos.close();
         baseDatos = null;
+
+
     }
 
     public void onClickSacarFoto(View v) {
@@ -128,5 +120,29 @@ public class Rexistrarse extends AppCompatActivity {
         }
     }
 
+    public void onClickEditar(View v) {
+        final ImageView img2 = (ImageView) findViewById(R.id.imgView2);
+        final TextView TXTEditNome = (TextView) findViewById(R.id.TXTEditNome);
+        final TextView TXTEditApelidos = (TextView) findViewById(R.id.TXTEditApelidos);
+        final TextView TXTEditEmail = (TextView) findViewById(R.id.TXTEditEmail);
+        final TextView txtURI2 = (TextView) findViewById(R.id.txtURI2);
+        final TextView TXTEditContrasinal1 = (TextView) findViewById(R.id.TXTEditContrasinal1);
+        final TextView TXTEditContrasinal2 = (TextView) findViewById(R.id.TXTEditContrasinal2);
+
+        if(TXTEditContrasinal1.getText().toString().equals(TXTEditContrasinal2.getText().toString())) {
+            baseDatos = new BaseDatos(getApplicationContext());
+            SQLiteDatabase sqlLiteDB = baseDatos.getWritableDatabase();
+            sqlLiteDB.execSQL("update USUARIOS set nome='" + TXTEditNome.getText() + "',apelidos='" + TXTEditApelidos.getText() + "',email='" + TXTEditEmail.getText() + "',contrasinal='"+ TXTEditContrasinal1.getText()+"',foto='"+ txtURI2.getText() +"' where usuario='" + Usuario + "'");
+
+            baseDatos.close();
+            baseDatos = null;
+            Toast.makeText(this,"DATOS MODIFICADOS",Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(this,"NO COINCIDEN LAS CONTRASEÑAS",Toast.LENGTH_LONG).show();
+            //No coinciden pass
+        }
+
+    }
 
 }

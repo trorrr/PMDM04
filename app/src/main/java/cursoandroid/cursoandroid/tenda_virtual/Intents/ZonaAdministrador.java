@@ -6,11 +6,13 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import cursoandroid.cursoandroid.tenda_virtual.BaseDatos;
@@ -18,19 +20,23 @@ import cursoandroid.cursoandroid.tenda_virtual.R;
 
 public class ZonaAdministrador extends AppCompatActivity {
     private BaseDatos baseDatos;
+    private String Usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zona_administrador);
         final TextView LBLNome = (TextView) findViewById(R.id.LBLAdminNome);
+        final ImageView IMG = (ImageView) findViewById(R.id.IMG);
         Intent intent = getIntent();
-        String Usuario = intent.getExtras().getString("Usuario");
+        Usuario = intent.getExtras().getString("Usuario");
         baseDatos = new BaseDatos(getApplicationContext());
         SQLiteDatabase sqlLiteDB = baseDatos.getWritableDatabase();
-        Cursor cursor = sqlLiteDB.rawQuery("select nome,apelidos from USUARIOS where usuario='"+Usuario+"'", null);
+        Cursor cursor = sqlLiteDB.rawQuery("select nome,apelidos,foto from USUARIOS where usuario='"+Usuario+"'", null);
         if (cursor.moveToFirst()) { // Por si no hay registros
             LBLNome.setText(cursor.getString(0)+" "+cursor.getString(1));
+            IMG.setImageBitmap(BitmapFactory.decodeFile(cursor.getString(2)));
+
         }
         else {
             LBLNome.setText("Erro: Usuario:"+Usuario);
@@ -85,6 +91,12 @@ public class ZonaAdministrador extends AppCompatActivity {
 
     public void onClickVerPedidosRexeitados(View v) {
         Intent intent = new Intent(getApplicationContext(), AdminVerPedidosRexeitados.class);
+        startActivity(intent);
+    }
+
+    public void onClickEditar(View v) {
+        Intent intent = new Intent(getApplicationContext(), EditarDatos.class);
+        intent.putExtra("Usuario", Usuario);
         startActivity(intent);
     }
 }
