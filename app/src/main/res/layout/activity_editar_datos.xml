@@ -72,13 +72,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtURI2"
+        android:id="@+id/txtURIEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
         android:text="______"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imgViewEdit"
+        tools:visibility="invisible" />
 
     <Button
         android:id="@+id/button"
@@ -126,12 +128,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imgView2"
+        android:id="@+id/imgViewEdit"
         android:layout_width="89dp"
         android:layout_height="80dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintStart_toEndOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/btnSeleccionarFoto2"
-        app:srcCompat="@android:drawable/alert_light_frame"
-        tools:layout_editor_absoluteX="275dp" />
+        app:srcCompat="@android:drawable/alert_light_frame" />
 
     <EditText
         android:id="@+id/TXTEditContrasinal1"

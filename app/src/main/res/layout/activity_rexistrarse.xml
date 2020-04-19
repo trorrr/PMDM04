@@ -130,10 +130,11 @@
         android:id="@+id/imgView"
         android:layout_width="89dp"
         android:layout_height="80dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="72dp"
+        app:layout_constraintStart_toEndOf="@+id/radioGrupo"
         app:layout_constraintTop_toBottomOf="@+id/TXTContrasinal"
-        app:srcCompat="@android:drawable/alert_light_frame"
-        tools:layout_editor_absoluteX="275dp" />
+        app:srcCompat="@android:drawable/alert_light_frame" />
 
     <EditText
         android:id="@+id/TXTEmail"
@@ -199,6 +200,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:text="______"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgView" />
+        app:layout_constraintTop_toBottomOf="@+id/imgView"
+        tools:visibility="invisible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

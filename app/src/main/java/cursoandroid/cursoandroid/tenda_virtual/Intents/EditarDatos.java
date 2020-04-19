@@ -37,11 +37,11 @@ public class EditarDatos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_datos);
-        final ImageView img2 = (ImageView) findViewById(R.id.imgView2);
+        final ImageView img2 = (ImageView) findViewById(R.id.imgViewEdit);
         final TextView TXTEditNome = (TextView) findViewById(R.id.TXTEditNome);
         final TextView TXTEditApelidos = (TextView) findViewById(R.id.TXTEditApelidos);
         final TextView TXTEditEmail = (TextView) findViewById(R.id.TXTEditEmail);
-        final TextView txtURI2 = (TextView) findViewById(R.id.txtURI2);
+        final TextView txtURI2 = (TextView) findViewById(R.id.txtURIEdit);
         final TextView TXTEditContrasinal1 = (TextView) findViewById(R.id.TXTEditContrasinal1);
         final TextView TXTEditContrasinal2 = (TextView) findViewById(R.id.TXTEditContrasinal2);
         Intent intent = getIntent();
@@ -59,6 +59,7 @@ public class EditarDatos extends AppCompatActivity {
 
         baseDatos.close();
         baseDatos = null;
+        pedirPermiso();
 
 
     }
@@ -77,9 +78,9 @@ public class EditarDatos extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        final TextView txtURI = findViewById(R.id.txtURI);
+        final TextView txtURI = findViewById(R.id.txtURIEdit);
         Bitmap bitMap= (Bitmap) data.getExtras().get("data");
-        final ImageView imgView = findViewById(R.id.imgView);
+        final ImageView imgView = findViewById(R.id.imgViewEdit);
         imgView.setImageBitmap(bitMap);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
@@ -121,11 +122,11 @@ public class EditarDatos extends AppCompatActivity {
     }
 
     public void onClickEditar(View v) {
-        final ImageView img2 = (ImageView) findViewById(R.id.imgView2);
+        final ImageView img2 = (ImageView) findViewById(R.id.imgViewEdit);
         final TextView TXTEditNome = (TextView) findViewById(R.id.TXTEditNome);
         final TextView TXTEditApelidos = (TextView) findViewById(R.id.TXTEditApelidos);
         final TextView TXTEditEmail = (TextView) findViewById(R.id.TXTEditEmail);
-        final TextView txtURI2 = (TextView) findViewById(R.id.txtURI2);
+        final TextView txtURI2 = (TextView) findViewById(R.id.txtURIEdit);
         final TextView TXTEditContrasinal1 = (TextView) findViewById(R.id.TXTEditContrasinal1);
         final TextView TXTEditContrasinal2 = (TextView) findViewById(R.id.TXTEditContrasinal2);
 

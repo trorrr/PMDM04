@@ -10,7 +10,7 @@ public class BaseDatos extends SQLiteOpenHelper{
     public final static String NOME_BD="basedatos";
     public final static int VERSION_BD=1;
 
-    private String CREAR_TABOA_USUARIOS = "CREATE TABLE USUARIOS (_id  INTEGER PRIMARY KEY AUTOINCREMENT,nome VARCHAR(50)  NOT NULL, apelidos VARCHAR(150),email VARCHAR(150),usuario VARCHAR(50),contrasinal VARCHAR(50),tipo VARCHAR(50))";
+    private String CREAR_TABOA_USUARIOS = "CREATE TABLE USUARIOS (_id  INTEGER PRIMARY KEY AUTOINCREMENT,nome VARCHAR(50)  NOT NULL, apelidos VARCHAR(150),email VARCHAR(150),usuario VARCHAR(50),contrasinal VARCHAR(50),tipo VARCHAR(50),foto TEXT)";
     private String CREAR_TABOA_PEDIDOS = "CREATE TABLE PEDIDOS (_id  INTEGER PRIMARY KEY AUTOINCREMENT,categoria VARCHAR(100), producto VARCHAR(100),cantidad INT,direccion VARCHAR(200),cidade VARCHAR(50),cp INT,usuario VARCHAR(50),estado VARCHAR(50))";
 
     public BaseDatos(Context context) {
