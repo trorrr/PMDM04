@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Intents.ZonaClientes">
 
+    <Button
+        android:id="@+id/BTNVolverAdminAceptados11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="132dp"
+        android:onClick="volver"
+        android:text="Volver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintStart_toEndOf="@+id/BTNFacerPedido"
+        app:layout_constraintTop_toBottomOf="@+id/LBLNome" />
+
     <TextView
         android:id="@+id/LBLNome"
         android:layout_width="wrap_content"
@@ -30,7 +43,7 @@
         android:id="@+id/BTNFacerPedido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:onClick="onClickFacerPedido"
         android:text="facer pedido"
@@ -41,7 +54,7 @@
         android:id="@+id/BTNVerPedidosEnTramite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:onClick="onClickVerPedidosEnTramite"
         android:text="ver pedidos en trámite"
@@ -52,7 +65,7 @@
         android:id="@+id/BTNVerComprasRealizadas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:onClick="onClickVerComprasRealizadas"
         android:text="ver compras realizadas"
@@ -63,7 +76,7 @@
         android:id="@+id/BTNSair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:onClick="onClickSair"
         android:text="Saír"

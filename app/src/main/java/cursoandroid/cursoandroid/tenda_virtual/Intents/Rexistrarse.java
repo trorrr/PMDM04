@@ -60,7 +60,8 @@ public class Rexistrarse extends AppCompatActivity {
             int existeUsuario =cursor.getInt(0);
             if(existeUsuario==0) { //No existe el usuario, hay que crearlo
                 sqlLiteDB.execSQL("INSERT INTO Usuarios (nome,apelidos,email,usuario,contrasinal,tipo,foto) VALUES ('"+TXTNome.getText().toString()+"','"+TXTApelidos.getText().toString()+"','"+TXTEmail.getText().toString()+"','"+TXTUsuario.getText().toString()+"','"+TXTContrasinal.getText().toString()+"','"+radioButton.getText().toString()+"','"+txtURI.getText().toString()+"')");
-                Toast.makeText(getApplicationContext(),"¡Rexistrado satisfactoriamente, podes voltar e loguearte! ",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"¡Rexistrado satisfactoriamente, xa podes loguearte! ",Toast.LENGTH_LONG).show();
+                finish();
             }
             else {
                 Toast.makeText(getApplicationContext(),"¡O usuario xa existe! ",Toast.LENGTH_LONG).show();
@@ -128,5 +129,7 @@ public class Rexistrarse extends AppCompatActivity {
         }
     }
 
-
+    public void volver(View v)  {
+        finish();
+    }
 }

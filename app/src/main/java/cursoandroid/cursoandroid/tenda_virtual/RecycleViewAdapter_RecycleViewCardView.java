@@ -16,9 +16,12 @@ import java.util.ArrayList;
 public class RecycleViewAdapter_RecycleViewCardView extends RecyclerView.Adapter {
     private BaseDatos baseDatos;
     private ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
+    private RecyclerView recyclerView;
 
 
-    public RecycleViewAdapter_RecycleViewCardView(Context context,String usuario,String filtro) {
+    public RecycleViewAdapter_RecycleViewCardView(Context context,String usuario,String filtro,RecyclerView recyclerOrig) {
+
+        recyclerView=recyclerOrig;
         baseDatos = new BaseDatos(context);
         SQLiteDatabase sqlLiteDB = baseDatos.getWritableDatabase();
         String where = "";
@@ -26,6 +29,8 @@ public class RecycleViewAdapter_RecycleViewCardView extends RecyclerView.Adapter
         if(usuario.length()>0) where = where + " and usuario='"+usuario+"'";
         if(filtro.length()>0) where = where + " and estado='"+filtro+"'";
         if((usuario.length()==0) && (filtro=="En trámite")) editable=true;
+
+        Log.d("HFL","select _id,categoria,producto,cantidad,direccion,cidade,cp,usuario,estado from PEDIDOS where 1=1"+where);
         Cursor cursor = sqlLiteDB.rawQuery("select _id,categoria,producto,cantidad,direccion,cidade,cp,usuario,estado from PEDIDOS where 1=1"+where, null);
         if (cursor.moveToFirst()) { // Por si no hay registros
             while (!cursor.isAfterLast()) {
@@ -48,7 +53,7 @@ public class RecycleViewAdapter_RecycleViewCardView extends RecyclerView.Adapter
 
         View v = mInflater.inflate(R.layout.card_layout_recycleviewcardview,viewGroup,false);
 
-        RecyclerView.ViewHolder viewHolder = new ViewHolder_RecycleViewCardView(v);
+        RecyclerView.ViewHolder viewHolder = new ViewHolder_RecycleViewCardView(v,recyclerView);
         return viewHolder;
     }
 
@@ -84,4 +89,10 @@ public class RecycleViewAdapter_RecycleViewCardView extends RecyclerView.Adapter
         return pedidos.size();
 
     }
+
+    public final void borrar(int position) {
+        pedidos.remove(position);
+        notifyItemRemoved(position);
+    }
+
 }

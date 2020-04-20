@@ -77,5 +77,7 @@ public class FinalizarPedido extends AppCompatActivity {
 
 
     }
-
+    public void volver(View v)  {
+        finish();
+    }
 }

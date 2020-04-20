@@ -67,4 +67,7 @@ public class FacerPedido extends AppCompatActivity {
 
     }
 
+    public void volver(View v)  {
+        finish();
+    }
 }

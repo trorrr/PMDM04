@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import cursoandroid.cursoandroid.tenda_virtual.R;
 import cursoandroid.cursoandroid.tenda_virtual.RecycleViewAdapter_RecycleViewCardView;
@@ -15,14 +16,17 @@ public class AdminVerPedidosAceptados extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_ver_pedidos_aceptados);
-        RecycleViewAdapter_RecycleViewCardView recycleAdapter = new RecycleViewAdapter_RecycleViewCardView(getApplicationContext(), "","Aceptado");
-
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this,1);
 
         RecyclerView recyclerView = findViewById(R.id.rvwRecycleView);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this,1);
 
+        RecycleViewAdapter_RecycleViewCardView recycleAdapter = new RecycleViewAdapter_RecycleViewCardView(getApplicationContext(), "","Aceptado",recyclerView);
         recyclerView.setLayoutManager(layoutManager);
 
         recyclerView.setAdapter(recycleAdapter);
+    }
+
+    public void volver(View v)  {
+        finish();
     }
 }

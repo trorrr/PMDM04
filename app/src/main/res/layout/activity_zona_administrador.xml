@@ -7,10 +7,24 @@
     tools:context=".Intents.ZonaAdministrador">
 
     <Button
+        android:id="@+id/BTNVolverAdminAceptados10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="160dp"
+        android:onClick="volver"
+        android:text="Volver"
+        app:layout_constraintBottom_toTopOf="@+id/BTNAdminVerPedidosEnTramite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnEditarAdmin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047" />
+
+    <Button
         android:id="@+id/BTNAdminVerPedidosEnTramite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="136dp"
         android:onClick="onClickVerPedidosEnTramite"
         android:text="ver pedidos en trámite"
@@ -21,7 +35,7 @@
         android:id="@+id/BTNAdminVerComprasAceptadas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         android:onClick="onClickVerPedidosAceptados"
         android:text="ver pedidos aceptados"
@@ -32,7 +46,7 @@
         android:id="@+id/BTNAdminVerComprasRexeitadas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         android:onClick="onClickVerPedidosRexeitados"
         android:text="ver pedidos rexeitados"
@@ -77,7 +91,7 @@
         android:id="@+id/btnEditarAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="24dp"
         android:layout_marginBottom="60dp"
         android:onClick="onClickEditar"
         android:text="Editar"

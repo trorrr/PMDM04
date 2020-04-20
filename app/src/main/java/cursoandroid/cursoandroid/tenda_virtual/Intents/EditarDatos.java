@@ -146,4 +146,8 @@ public class EditarDatos extends AppCompatActivity {
 
     }
 
+    public void volver(View v)  {
+        finish();
+    }
+
 }

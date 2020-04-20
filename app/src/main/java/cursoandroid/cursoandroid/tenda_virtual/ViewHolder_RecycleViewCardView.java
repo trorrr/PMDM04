@@ -4,6 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,11 +24,13 @@ public class ViewHolder_RecycleViewCardView extends RecyclerView.ViewHolder {
     public Button BTNAdminAceptar;
     public Button BTNAdminRexeitar;
     private BaseDatos baseDatos;
+    private RecyclerView recyclerView;
 
-    public ViewHolder_RecycleViewCardView(@NonNull View itemView) {
+
+    public ViewHolder_RecycleViewCardView(@NonNull final View itemView,RecyclerView recyclerOrig) {
 
         super(itemView);
-
+        recyclerView = recyclerOrig;
         item_IDpedido = itemView.findViewById(R.id.IDpedidoCV);
         item_categoria = itemView.findViewById(R.id.categoriaCV);
         item_producto = itemView.findViewById(R.id.productoCV);
@@ -51,6 +54,15 @@ public class ViewHolder_RecycleViewCardView extends RecyclerView.ViewHolder {
                 //Log.d("HFL","UPDATE Pedidos SET estado='Aceptado' where _id="+item_IDpedido.getText().toString());
                 baseDatos.close();
                 baseDatos = null;
+
+                //GridLayout includedLayout = v.findViewById(R.id.ConstraintLayout);
+                //RecyclerView recyclerView = layoutManager.findViewById(R.id.rvwRecycleView);
+
+                RecycleViewAdapter_RecycleViewCardView rec = (RecycleViewAdapter_RecycleViewCardView)recyclerView.getAdapter();
+                rec.borrar(posicion);
+
+
+
             }
         });
 
@@ -65,7 +77,15 @@ public class ViewHolder_RecycleViewCardView extends RecyclerView.ViewHolder {
                 baseDatos.close();
                 baseDatos = null;
 
+
+                RecyclerView recyclerView = v.findViewById(R.id.rvwRecycleView);
+                recyclerView.getAdapter().notifyItemRemoved(posicion);
             }
         });
+    }
+
+
+    public void bo() {
+
     }
 }
